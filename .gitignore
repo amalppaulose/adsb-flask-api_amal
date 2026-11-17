@@ -1,0 +1,7 @@
+config.yml
+.env
+.venv/
+__pycache__/
+*.pyc
+api-fallback.jsonl
+.pytest_cache/

@@ -1,0 +1,178 @@
+{
+  "getData": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "getData response",
+    "type": "object",
+    "required": [
+      "code",
+      "msg",
+      "req",
+      "sqltime",
+      "results",
+      "num_results"
+    ],
+    "properties": {
+      "code": {
+        "const": 1
+      },
+      "msg": {
+        "type": "string"
+      },
+      "req": {
+        "const": "getData"
+      },
+      "sqltime": {
+        "type": "number",
+        "minimum": 0
+      },
+      "results": {
+        "type": "array",
+        "maxItems": 500,
+        "items": {
+          "type": "object",
+          "required": [
+            "date_time",
+            "geo_point"
+          ],
+          "properties": {
+            "date_time": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$"
+            },
+            "geo_point": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "num_results": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 500
+      }
+    },
+    "additionalProperties": false
+  },
+  "countInPolygon": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "countInPolygon response",
+    "type": "object",
+    "required": [
+      "code",
+      "msg",
+      "req",
+      "sqltime",
+      "count"
+    ],
+    "properties": {
+      "code": {
+        "const": 1
+      },
+      "msg": {
+        "type": "string"
+      },
+      "req": {
+        "const": "countInPolygon"
+      },
+      "sqltime": {
+        "type": "number",
+        "minimum": 0
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "getAvgSpeedByFlight": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "getAvgSpeedByFlight response",
+    "type": "object",
+    "required": [
+      "code",
+      "msg",
+      "req",
+      "sqltime",
+      "results",
+      "num_results"
+    ],
+    "properties": {
+      "code": {
+        "const": 1
+      },
+      "msg": {
+        "type": "string"
+      },
+      "req": {
+        "const": "getAvgSpeedByFlight"
+      },
+      "sqltime": {
+        "type": "number",
+        "minimum": 0
+      },
+      "results": {
+        "type": "array",
+        "maxItems": 500,
+        "items": {
+          "type": "object",
+          "required": [
+            "flight_num",
+            "avg_speed"
+          ],
+          "properties": {
+            "flight_num": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "avg_speed": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "num_results": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 500
+      }
+    },
+    "additionalProperties": false
+  },
+  "error": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": [
+      "code",
+      "msg",
+      "req",
+      "sqltime"
+    ],
+    "properties": {
+      "code": {
+        "const": 0
+      },
+      "msg": {
+        "type": "string"
+      },
+      "req": {
+        "type": "string"
+      },
+      "sqltime": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,7 @@
+mysql:
+  host: mysql.clarksonmsda.org
+  port: 3306
+  user: ia626
+  password: YOUR_COURSE_DATABASE_PASSWORD
+  database: ia626
+  autocommit: true
